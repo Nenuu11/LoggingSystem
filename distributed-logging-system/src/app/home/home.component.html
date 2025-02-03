@@ -1,0 +1,34 @@
+<p-card header="Logs" class="p-2">
+    <p class="m-0">
+        <p-table
+    [value]="logs"
+    [paginator]="true"
+    [rows]="2"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [rowsPerPageOptions]="[5, 10, 20]"
+>
+    <ng-template #header>
+        <tr>
+            <th style="width:25%">service</th>
+            <th style="width:25%">level</th>
+            <th style="width:25%">message</th>
+            <th style="width:25%">timestamp</th>
+            <th style="width:25%"></th>
+
+        </tr>
+    </ng-template>
+    <ng-template #body let-log>
+        <tr>
+            <td>{{ log.service }}</td>
+            <td>{{ log.level }}</td>
+            <td>{{ log.message }}</td>
+            <td>{{ log.timestamp }}</td>
+            <td>
+                <a [routerLink]="['/logs', log.id]"><i class="pi pi-eye text-primary"></i></a>
+            </td>
+
+        </tr>
+    </ng-template>
+</p-table>
+    </p>
+</p-card>
